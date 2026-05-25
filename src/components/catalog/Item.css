@@ -1,0 +1,79 @@
+.item-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  padding: 24px 0;
+}
+
+.item-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 0.5px solid #e0e0e0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 280px;
+}
+
+.item-img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+}
+
+.item-info {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.item-categoria {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #7a7a7b;
+  font-weight: 500;
+}
+
+.item-nombre {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.item-descripcion {
+  font-size: 14px;
+  color: #7a7a7b;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.item-precio {
+  font-size: 18px;
+  color: #1a1a2e;
+  font-weight: 500;
+}
+
+.item-btn {
+  background: #e8b84b;
+  color: #1a1a2e;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.item-btn:hover {
+  background: #ff7f50;
+}

@@ -1,0 +1,77 @@
+.footer {
+  background: #1a1a2e;
+  padding: 20px 24px;
+}
+
+.footer-info {
+  color: #ebeaf1;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 900px;
+  margin-bottom: 28px;
+}
+
+.footer-info h3 {
+  color: #e8b84b;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.footer-team {
+  margin-top: 28px;
+}
+
+.team-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.footer-team h4 {
+  color: #e8b84b;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.team-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.team-card strong {
+  color: #1a1a2e;
+  font-size: 16px;
+}
+
+.team-card span {
+  color: #1a1a2e;
+  font-size: 16px;
+}
+
+.team-card a {
+  color: #1a1a2e;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.team-card a:hover {
+  color: #ffb84d;
+}
+
+.footer-bottom {
+  border-top: 0.5px solid #7a7a7b;
+  padding-top: 12px;
+  color: #dcdce8;
+  font-size: 12px;
+  text-align: center;
+}

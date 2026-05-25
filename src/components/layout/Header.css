@@ -1,0 +1,91 @@
+.header {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.header-brand {
+  min-height: 100%;
+  padding: 14px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e7e2dc;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.header-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.header-brand h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 800;
+  color: #4b2783;
+  letter-spacing: 0;
+}
+
+.hero {
+  min-height: 460px;
+  height: 460px;
+  background-size: contain;
+  position: relative;
+  display: flex;
+  padding: 32px 58px;
+  overflow: hidden;
+  background-image:
+    url("/images/hero.png");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  filter: none;
+}
+
+.hero-content {
+  color: #ff7f50;
+  position: relative;
+  z-index: 2;
+  max-width: 790px;
+  margin-left: 100px;
+  margin-top: 4px;
+}
+
+.hero-content h2 {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  line-height: 1.2;
+  color: #F88379;
+}
+
+.hero-button {
+  display: inline-block;
+  margin: 10px 0 0 0;
+  padding: 12px;
+  background-color: #F88379;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 230px;
+}
+
+.hero-button:hover {
+  background-color: #ffc86f;
+  color: #6b6969;
+}

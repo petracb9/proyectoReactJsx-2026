@@ -1,16 +1,67 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React + Vite
 
-Currently, two official plugins are available:
+El proyecto TropicGlas se desarrolla con la librería de ReactJSX y la herramienta Vite como el motor que prepara, empaqueta y actualiza la API desde el código JSX hasta el CSS configurándose para varios navegadores. 
+## Estructura
+La estructura se organiza de acuerdo a las rutas para su conexión con los tres requerimientos del proyecto como sigue: (por mejorar la ruta)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```txt
+proyecto-reactjsx-2026
+  └──public/
+  │   └── images/
+  └── src
+    └── componentes (mejorar)
+   └── main.jsx
+      └── BrowserRouter
+    └── App.jsx
+        └── Layout.jsx
+            ├── Header.jsx
+            │   └── Navbar.jsx
+            ├── Routes
+            │   ├── Home.jsx
+            │   ├── Productos.jsx
+            │   │   └── ItemListContainer.jsx
+            │   │       └── ItemList.jsx
+            │   │           └── Item.jsx
+            │   ├── ProductoDetalle.jsx
+            │   └── Carrito.jsx
+            └── Footer.jsx
+   ```
+```txt
+public/
+└── data/
+    └── productos.json
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+src/
+├── components/
+│   ├── Layout/
+│   │   ├── Header.jsx
+│   │   ├── Header.css
+│   │   ├── Navbar.jsx
+│   │   ├── Navbar.css
+│   │   ├── Footer.jsx
+│   │   ├── Footer.css
+│   │   ├── Layout.jsx
+│   │   └── Layout.css
+│   │
+│   └── catalog/
+│       ├── ItemListContainer.jsx
+│       ├── ItemListContainer.css
+│       ├── ItemList.jsx
+│       ├── ItemList.css
+│       ├── Item.jsx
+│       └── Item.css
+├── data/
+│   ├── productos.json/
+├── pages/
+│   ├── Carrito.jsx/
+│   ├── Categorias.jsx/
+│   ├── Home.jsx/
+│   ├── ProductoDetalle.jsx/
+│   ├── Productos.jsx/
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```

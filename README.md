@@ -1,10 +1,10 @@
 # React + Vite
 
-# React + Vite
-
 El proyecto TropicGlas se desarrolla con la librería de ReactJSX y la herramienta Vite como el motor que prepara, empaqueta y actualiza la API desde el código JSX hasta el CSS configurándose para varios navegadores. 
+
 ## Estructura
 La estructura se organiza de acuerdo a las rutas para su conexión con los tres requerimientos del proyecto como sigue: (por mejorar la ruta)
+
 
 ```txt
 proyecto-reactjsx-2026
@@ -28,6 +28,7 @@ proyecto-reactjsx-2026
             │   └── Carrito.jsx
             └── Footer.jsx
    ```
+
 ```txt
 public/
 └── data/
@@ -65,3 +66,5 @@ src/
 ├── main.jsx
 └── index.css
 ```
+
+# Continuidad con los dos requerimientos...

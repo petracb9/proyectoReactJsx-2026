@@ -1,0 +1,138 @@
+.carrito-vacio {
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.carrito-empty-icon {
+  font-size: 56px;
+  opacity: 0.3;
+}
+
+.carrito-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.carrito-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.carrito-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  background: #fff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.carrito-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+.carrito-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.carrito-item-info h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a2e;
+}
+
+.carrito-item-precio {
+  font-size: 13px;
+  color: #666;
+}
+
+.carrito-item-subtotal {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a2e;
+}
+
+.carrito-remove {
+  background: none;
+  border: 0.5px solid #ddd;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  color: #999;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrito-remove:hover {
+  border-color: #e24b4a;
+  color: #e24b4a;
+}
+
+.carrito-resumen {
+  background: #f9f9f9;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.carrito-total {
+  font-size: 20px;
+  color: #1a1a2e;
+}
+
+.carrito-acciones {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.carrito-btn {
+  background: #1a1a2e;
+  color: #e8b84b;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.carrito-btn:hover {
+  background: #2a2a4e;
+}
+
+.carrito-btn-outline {
+  background: transparent;
+  color: #1a1a2e;
+  border: 1.5px solid #1a1a2e;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}

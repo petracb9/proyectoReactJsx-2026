@@ -3,10 +3,10 @@ import Footer from './Footer'
 import './Layout.css'
 
 
-function Layout ({ children, cantidadCarrito }) {
+function Layout ({ children, totalItems }) {
   return (
     <div className="layout">
-      <Header cantidadCarrito={cantidadCarrito} />
+      <Header totalItems={totalItems} />
       
       <main className="main-content">
         {children}

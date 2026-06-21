@@ -1,14 +1,15 @@
 import { useParams, Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useCart } from '../context/CartContext'
 import productos from '../data/productos.json'
+import './ProductoDetalle.css'
 
 function ProductoDetalle() {
   const { id } = useParams()
-  const [producto, setProducto] = useState(null)
+  const { addToCart } = useCart()
 
-  const encontrado = productos.find(p => p.id === Number(id))
-    
-  if (!encontrado) {
+  const producto = productos.find(p => p.id === Number(id))
+
+  if (!producto) {
    return (
       <div className="page-not-found">
         <h2>Producto no encontrado</h2>
@@ -28,7 +29,11 @@ function ProductoDetalle() {
           ${producto.precio.toLocaleString('es-AR')}
         </strong>
         <Link to="/carrito">
-          <button className="item-btn">Agregar al carrito</button>
+          <button 
+            className="item-btn" 
+            onClick={() => addToCart(producto)}>
+            Agregar al carrito
+          </button>
         </Link>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
 import './Header.css'
 
-function Header({ cantidadCarrito }) {
+function Header({ totalItems }) {
   return (
     <header className="header">
       <div className='header-brand'>
@@ -17,7 +17,7 @@ function Header({ cantidadCarrito }) {
 
        </Link>
 
-       <Navbar cantidadCarrito={cantidadCarrito} />
+       <Navbar totalItems={totalItems} />
       </div>
 
       <div className="hero">

@@ -1,18 +1,21 @@
 ﻿import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-// Configure these via Vite env (VITE_...)
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Credenciales de Firebase
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  apiKey: "AIzaSyBqi5IQqJez3rDu48EovjjXi_9VU--xXaY",
+  authDomain: "tropicglass-app.firebaseapp.com",
+  projectId: "tropicglass-app",
+  storageBucket: "tropicglass-app.firebasestorage.app",
+  messagingSenderId: "944542320385",
+  appId: "1:944542320385:web:958beebd73ebf63685bd00",
+  measurementId: "G-MLH06MNN2T"
 };
 
+// Inicializa Firebase
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-export const auth = getAuth(app);
-export default app;
+const auth = getAuth(app);
+// Exporta la autenticación para usarla en otros archivos
+export { auth };

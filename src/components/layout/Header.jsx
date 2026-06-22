@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
 import './Header.css'
 
-function Header({ totalItems }) {
+function Header() {
   return (
     <header className="header">
       <div className='header-brand'>
@@ -14,10 +14,9 @@ function Header({ totalItems }) {
           <div> 
               <h1 className="header-title">TropicGlass</h1>
           </div>
+        </Link>
 
-       </Link>
-
-       <Navbar totalItems={totalItems} />
+       <Navbar />
       </div>
 
       <div className="hero">

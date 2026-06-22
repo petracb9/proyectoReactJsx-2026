@@ -20,7 +20,6 @@ function ProductoDetalle() {
   }
 
   function handleAddToCart() {
-    console.log('Agregando al carrito:', producto)
     addToCart(producto)
     navigate('/carrito')
   }

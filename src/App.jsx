@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
@@ -9,20 +8,14 @@ import Carrito from './pages/Carrito'
 import './App.css'
 
 function App() {
-  const [carrito, setCarrito] = useState([]) 
-
-  function agregarAlCarrito(producto) {
-    setCarrito([...carrito, producto])
-  }
-
   return (
-      <Layout cantidadCarrito={carrito.length}>
+      <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/categorias" element={<Categorias />} />
-          <Route path="/productos" element={<Productos agregarAlCarrito={agregarAlCarrito} />} />
-          <Route path="/producto/:id" element={<ProductoDetalle agregarAlCarrito={agregarAlCarrito} />} />
-          <Route path="/carrito" element={<Carrito carrito={carrito} />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/producto/:id" element={<ProductoDetalle />} />
+          <Route path="/carrito" element={<Carrito />} />
          </Routes>
       </Layout>  
   )

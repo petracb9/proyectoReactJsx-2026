@@ -6,7 +6,7 @@
 }
 
 .item-card {
-  background: #ffffff;
+  background: #fdfaf5;
   border-radius: 12px;
   border: 0.5px solid #e0e0e0;
   overflow: hidden;
@@ -76,4 +76,9 @@
 
 .item-btn:hover {
   background: #ff7f50;
+}
+
+.item-link {
+  font-size: 16px;
+  color: #5f5f5f;
 }

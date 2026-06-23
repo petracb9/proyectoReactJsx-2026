@@ -1,5 +1,5 @@
-﻿import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+﻿import { initializeApp } from "firebase/app"
+import { getAuth } from "firebase/auth"
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -12,10 +12,10 @@ const firebaseConfig = {
   messagingSenderId: "944542320385",
   appId: "1:944542320385:web:958beebd73ebf63685bd00",
   measurementId: "G-MLH06MNN2T"
-};
+}
 
 // Inicializa Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const app = initializeApp(firebaseConfig)
+const auth = getAuth(app)
 // Exporta la autenticación para usarla en otros archivos
-export { auth };
+export { auth }

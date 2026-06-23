@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useAuth } from  '../context/AuthContext'
+import { useAuth } from '../context/AuthContext'
 import { useNavigate, Link } from 'react-router-dom'
 import './Login.css'
 
@@ -18,15 +18,13 @@ function Login() {
         setLoading(true)
         try {
             await login(email, password)
-            navigate('/')
+            navigate('/perfil')
         } catch (err) {
             setError('Error al iniciar sesión: ' + err.message)
-        } finally { 
-
+        } finally {
             setLoading(false)
-        }
-    }}
-
+     }
+    }
     return (
         <div className="login-container">
             <h2>Iniciar Sesión</h2>
@@ -39,6 +37,7 @@ function Login() {
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Ingresa tu correo electrónico"
                         required
                     />
                 </div>
@@ -49,6 +48,7 @@ function Login() {
                         id="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Ingresa tu contraseña"
                         required
                     />
                 </div>
@@ -56,7 +56,9 @@ function Login() {
                     {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
                 </button>
             </form>
+            <p>¿No tienes cuenta? <Link to="/registro">Regístrate aquí</Link></p>
         </div>
-    ) 
-    
-    export default Login
+    )
+}
+
+export default Login

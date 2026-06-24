@@ -31,7 +31,6 @@ const AdminProductos = () => {
 
   useEffect(() => {
     cargarProductos()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Función para agregar un nuevo producto a Firestore

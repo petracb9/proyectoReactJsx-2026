@@ -13,6 +13,10 @@ function Navbar() {
         <li><Link to="/">Inicio</Link></li>
         <li><Link to="/categorias">Categorías</Link></li>
         <li><Link to="/productos">Productos</Link></li>
+        {user && user.isAdmin && (
+          <li><Link to="/admin">Admin</Link></li>
+        )}
+       
         <li>
           <Link to="/carrito" className='cart-link'>
           <span className="cart-icon">🛒</span>

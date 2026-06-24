@@ -9,6 +9,7 @@ import Login from './pages/Login'
 import Registro from './pages/Registro'
 import Perfil from './pages/Perfil'
 import PrivateRoute from './components/auth/PrivateRoute'
+import AdminProductos from './pages/AdminProductos'
 import './App.css'
 
 function App() {
@@ -25,6 +26,11 @@ function App() {
           <Route path="/perfil" element={
             <PrivateRoute>
               <Perfil />
+            </PrivateRoute>
+          } />
+          <Route path="/admin" element={
+            <PrivateRoute>
+              <AdminProductos />
             </PrivateRoute>
           } />
         </Routes>

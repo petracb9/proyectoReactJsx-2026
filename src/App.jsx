@@ -8,11 +8,13 @@ import Carrito from './pages/Carrito'
 import Login from './pages/Login'
 import Registro from './pages/Registro'
 import Perfil from './pages/Perfil'
+import RecuperarPassword from './pages/RecuperarPassword'
 import PrivateRoute from './components/auth/PrivateRoute'
 import AdminProductos from './pages/AdminProductos'
 import './App.css'
 
 function App() {
+  console.log('App render')
   return (
       <Layout>
         <Routes>
@@ -23,6 +25,7 @@ function App() {
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Registro />} />
+          <Route path="/recuperar-password" element={<RecuperarPassword />} />
           <Route path="/perfil" element={
             <PrivateRoute>
               <Perfil />

@@ -7,6 +7,19 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.initials {
+  width: 80px;
+  height: 80px;
+  background: #e46868;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
 .perfil-container h2 {
   margin-bottom: 20px;
   color: #1a1a2e;
@@ -14,28 +27,94 @@
 
 .perfil-container p {
   margin: 12px 0;
-  font-size: 14px;
-  color: #666;
+  font-size: 16px;
+  color: #1a1a2e;
 }
 
-.perfil-container strong {
+.perfil-form p {
+  font-size: 16px;
+  color: #2e1a1b;
+}
+
+.perfil-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #e1dede;
+  border-radius: 4px;
+  caret-color: #f06464;
+}
+
+.perfil-container input:focus {
+  border-color: #c4c2c2;
+  outline: none;
+}
+
+.perfil-container form button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  background: #f26969;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.perfil-container .form-group {
+  margin-bottom: 16px;
+}
+
+.perfil-container label {
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+  font-weight: 600;
+}
+
+.perfil-container .success,
+.perfil-container .error {
+  margin: 16px 0 0;
+  font-size: 14px;
+}
+
+.perfil-container .success {
+  color: #274c1b;
+}
+
+.perfil-container .error {
+  color: #b71c1c;
+}
+
+.perfil-container button[type="button"] {
+  background: #ccc;
+}
+
+.perfil-container button[type="button"]:hover {
+  background: #b0b0b0;
+}
+
+.strong {
   color: #1a1a2e;
   font-weight: 600;
 }
 
-.perfil-container button {
-  margin-top: 20px;
-  padding: 12px 24px;
-  background: #e24b4a;
-  color: white;
+.perfil-info button { 
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #3f4d6c;
+  color: #fff;
   border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
+  border-radius: 4px;
+  margin-top: 20px;
+  font-size: 16px;
 }
 
 .perfil-container button:hover {
-  background: #c23939;
+  background: #e8b84b;
+  color: #1a1a2e;
 }

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { db } from '../firebase/config'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore'
-/*import { Link } from 'react-router-dom' si se requiere descomentar*/
 import ProductoForm from '../components/admin/ProductoForm'
 import ModalConfirmar from '../components/admin/ModalConfirmar'
+import './AdminProductos.css'
 
 const AdminProductos = () => {
   const [productos, setProductos] = useState([])
@@ -101,8 +101,9 @@ const AdminProductos = () => {
       <h2>Administración de Productos</h2>
 
       {/* Formulario para agregar o editar productos */}
-      <ProductoForm
-        producto={productoEditar}
+      <ProductoForm 
+        initialData={productoEditar || {}}
+        isEditMode={!!productoEditar}
         onSubmit={manejarSubmit}
         onCancelar={() => setProductoEditar(null)}
       />
@@ -113,31 +114,34 @@ const AdminProductos = () => {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Precio</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {productos.map((producto) => (
-              <tr key={producto.id}>
-                <td>{producto.nombre}</td>
-                <td>${Number(producto.precio).toFixed(2)}</td>
-                <td>
-                  <button onClick={() => setProductoEditar(producto)}>Editar</button>
-                  <button onClick={() => manejarConfirmacionEliminar(producto.id)}>Eliminar</button>
-                </td>
+        <div className="table-wrapper">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Acciones</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {productos.map((producto) => (
+                <tr key={producto.id}>
+                  <td>{producto.nombre}</td>
+                  <td className="price">{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(Number(producto.precio))}</td>
+                  <td>
+                    <button type="button" className="edit-btn" onClick={() => setProductoEditar(producto)}>Editar</button>
+                    <button type="button" className="delete-btn" onClick={() => manejarConfirmacionEliminar(producto.id)}>Eliminar</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
 
       {modalData.isOpen && (
         <ModalConfirmar
+          isOpen={modalData.isOpen}
           message={modalData.message}
           onConfirm={modalData.onConfirm}
           onCancel={cerrarModalConfirmacion}

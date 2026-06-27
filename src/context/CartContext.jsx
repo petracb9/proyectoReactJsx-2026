@@ -8,6 +8,7 @@ export function useCart() {
 
 function CartProvider({ children }) {
   const [carrito, setCarrito] = useState([])
+  console.log('CartProvider init')
 
   // Agrega producto o incrementa cantidad si ya existe
   function addToCart(producto) {

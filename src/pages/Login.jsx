@@ -56,9 +56,11 @@ function Login() {
                     {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
                 </button>
             </form>
+            <p className="forgot-link">
+              <Link to="/recuperar-password">¿Olvidaste tu contraseña?</Link>
+            </p>
             <p>¿No tienes cuenta? <Link to="/registro">Regístrate aquí</Link></p>
-        </div>
-    )
+        </div>    )
 }
 
 export default Login

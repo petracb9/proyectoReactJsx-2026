@@ -3,48 +3,48 @@
     "id": 1,
     "nombre": "Vaso Aloha",
     "categoria": "vasos-cortos",
-    "precio": 4500,
     "descripcion": "Exclusivo para el verano.",
-    "imagen": "/images/img1.png"
+    "imagen": "/images/img1.png",
+    "precio": 4500
   },
   {
     "id": 2,
     "nombre": "Vaso Palmeras",
     "categoria": "vasos-altos",
-    "precio": 3200,
     "descripcion": "Ideal para bebidas frías en movimiento.",
-    "imagen": "/images/img2.png"
+    "imagen": "/images/img2.png",
+    "precio": 3200
   },
   {
     "id": 3,
     "nombre": "Vaso Sunset",
     "categoria": "vasos-altos",
-    "precio": 2800,
     "descripcion": "Grabado láser con diseño personalizado.",
-    "imagen": "/images/img3.png"
+    "imagen": "/images/img3.png",
+    "precio": 2800
   },
   {
     "id": 4,
     "nombre": "Vaso Coconut",
     "categoria": "vasos-altos",
-    "precio": 5100,
     "descripcion": "Exclusivo para el verano.",
-    "imagen": "/images/img4.png"
+    "imagen": "/images/img4.png",
+    "precio": 5100
   },
   {
     "id": 5,
     "nombre": "Vaso Océano",
     "categoria": "vasos-altos",
-    "precio": 3800,
     "descripcion": "Exclusivo para el verano.",
-    "imagen": "/images/img5.png"
+    "imagen": "/images/img5.png",
+    "precio": 3800
   },
   {
     "id": 6,
     "nombre": "Vaso Paraíso",
     "categoria": "vasos-cortos",
-    "precio": 2500,
     "descripcion": "Grabado láser con diseño personalizado.",
-    "imagen": "/images/img6.png"
+    "imagen": "/images/img6.png",
+    "precio": 2500
   } 
 ]

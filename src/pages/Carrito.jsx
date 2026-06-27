@@ -25,17 +25,18 @@ function Carrito() {
               <div key={producto.id} className="cart-item">
                 <div className="cart-item-header">
                   <h3>{producto.nombre}</h3>
-                  <button
-                    className="cart-remove"
-                    onClick={() => removeFromCart(producto.id)}
-                  >
-                    Eliminar
-                  </button>
+                  
                 </div>
                 <p>Categoría: {producto.categoria}</p>
                 <p>Cantidad: {producto.cantidad}</p>
                 <p>Precio unitario: ${producto.precio.toLocaleString('es-AR')}</p>
                 <p>Subtotal: ${(producto.precio * producto.cantidad).toLocaleString('es-AR')}</p>
+                <button
+                    className="cart-remove"
+                    onClick={() => removeFromCart(producto.id)}
+                  >
+                    Eliminar
+                  </button>
               </div>
             ))}
       </div>
@@ -47,7 +48,7 @@ function Carrito() {
               Vaciar carrito
             </button>
             <Link to="/productos" className="cart-link">
-              Seguir comprando
+              Seguir comprando 
             </Link>
             <button className="cart-btn">
               Finalizar compra

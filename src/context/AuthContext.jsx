@@ -5,6 +5,7 @@ import {
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
+    sendPasswordResetEmail,
 } from 'firebase/auth'
 
 export const AuthContext = createContext()
@@ -15,7 +16,9 @@ export function useAuth() {
 
 function AuthProvider({ children }) {
     const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(true)    
+    const [loading, setLoading] = useState(true)
+
+    console.log('AuthProvider init, auth:', !!auth)
     
     function signup(email, password) {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -27,6 +30,10 @@ function AuthProvider({ children }) {
 
     function logout() {
         return signOut(auth)
+    }
+
+    function resetPassword(email) {
+        return sendPasswordResetEmail(auth, email)
     }
 
     useEffect(() => {
@@ -43,7 +50,8 @@ function AuthProvider({ children }) {
         loading,
         signup,
         login,
-        logout
+        logout,
+        resetPassword
     }
 
     return (

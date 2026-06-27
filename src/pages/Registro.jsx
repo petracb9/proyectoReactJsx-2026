@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate, Link } from 'react-router-dom'
+import { updateProfile } from 'firebase/auth'
+import { auth } from '../firebase/config'
 import './Login.css'
 
 function Registro() {
     const { signup } = useAuth()
     const navigate = useNavigate()
     
+    const [nombre, setNombre] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmarPassword, setConfirmarPassword] = useState('')
@@ -24,7 +27,8 @@ function Registro() {
         setLoading(true)
         
         try {
-            await signup(email, password)  
+            await signup(email, password)
+            await updateProfile(auth.currentUser, { displayName: nombre })  
             navigate('/perfil')
         } catch (err) {
             setError('Error al registrarse: ' + err.message)
@@ -37,6 +41,18 @@ function Registro() {
         <div className="login-container">
             <h2>Crear Cuenta</h2>
             <form onSubmit={handleSubmit}>
+
+                <div className="form-group">
+                    <label htmlFor="nombre">Nombre</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        value={nombre}
+                        onChange={(e) => setNombre(e.target.value)}
+                        placeholder="Ingresa tu nombre"
+                        required
+                    />
+                </div>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
                     <input

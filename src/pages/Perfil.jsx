@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { updateProfile, 
@@ -27,6 +27,13 @@ function Perfil() {
         ? user.displayName.charAt(0).toUpperCase()
         : user.email.split('@')[0].charAt(0).toUpperCase()
 
+    useEffect(()=> {
+                  document.body.classList.add('login-bg')
+                  return () => {
+                      document.body.classList.remove('login-bg')
+                  }
+              }, [])
+        
     async function handleLogout() {
         try {
             await logout()

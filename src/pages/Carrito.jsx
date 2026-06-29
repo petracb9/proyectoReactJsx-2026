@@ -5,6 +5,7 @@ import './Carrito.css'
 function Carrito() {
   const { carrito, removeFromCart, clearCart, totalItems, totalPrecio } = useCart()
 
+  
   if (carrito.length === 0) {
      return (
       <div className="carrito-vacio">

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { Link } from 'react-router-dom'
 import './Login.css'
@@ -9,6 +9,13 @@ function RecuperarPassword() {
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+
+  useEffect(()=> {
+              document.body.classList.add('login-bg')
+              return () => {
+                  document.body.classList.remove('login-bg')
+              }
+          }, [])
 
   async function handleSubmit(e) {
     e.preventDefault()

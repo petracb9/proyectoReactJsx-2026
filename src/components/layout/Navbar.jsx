@@ -39,7 +39,6 @@ function Navbar() {
         )}
       </ul>
        
-        
         {!user ? (
           <>
             <li><Link to="/login">Ingresar</Link></li>
@@ -58,7 +57,6 @@ function Navbar() {
           {totalItems > 0 && (<span className='cart-count'>{totalItems}</span>)}
           </Link>
         </li>
-      
     </nav>
   )
 }

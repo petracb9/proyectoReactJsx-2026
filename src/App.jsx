@@ -11,33 +11,38 @@ import Perfil from './pages/Perfil'
 import RecuperarPassword from './pages/RecuperarPassword'
 import PrivateRoute from './components/auth/PrivateRoute'
 import AdminProductos from './pages/AdminProductos'
+import AuthProvider from './context/AuthContext'
+import CartProvider from './context/CartContext'
 import './App.css'
 
 function App() {
-  console.log('App render')
   return (
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/categorias" element={<Categorias />} />
-          <Route path="/productos" element={<Productos />} />
-          <Route path="/producto/:id" element={<ProductoDetalle />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registro" element={<Registro />} />
-          <Route path="/recuperar-password" element={<RecuperarPassword />} />
-          <Route path="/perfil" element={
-            <PrivateRoute>
-              <Perfil />
-            </PrivateRoute>
-          } />
-          <Route path="/admin" element={
-            <PrivateRoute>
-              <AdminProductos />
-            </PrivateRoute>
-          } />
-        </Routes>
-      </Layout>  
+    <AuthProvider>
+      <CartProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/categorias" element={<Categorias />} />
+            <Route path="/productos" element={<Productos />} />
+            <Route path="/producto/:id" element={<ProductoDetalle />} />
+            <Route path="/carrito" element={<Carrito />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/registro" element={<Registro />} />
+            <Route path="/recuperar-password" element={<RecuperarPassword />} />
+            <Route path="/perfil" element={
+              <PrivateRoute>
+                <Perfil />
+              </PrivateRoute>
+            } />
+            <Route path="/admin" element={
+              <PrivateRoute>
+                <AdminProductos />
+              </PrivateRoute>
+            } />
+          </Routes>
+        </Layout>
+      </CartProvider>
+    </AuthProvider>
   )
 }
 

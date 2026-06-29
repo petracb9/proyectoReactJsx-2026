@@ -1,10 +1,11 @@
-import productos from "../data/productos.json";
-import Item from "../components/catalog/Item";
+import productos from  '../data/productos.json'
+import Item from '../components/catalog/Item'
 
 function Categorias() {
   const vasosAltos = productos.filter(
     (producto) => producto.categoria === "vasos-altos"
   );
+
 
   const vasosCortos = productos.filter(
     (producto) => producto.categoria === "vasos-cortos"

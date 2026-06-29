@@ -1,11 +1,14 @@
-﻿.login-container {
+﻿body.login-bg {
+  background: #ebf0f6;
+ 
+}
+
+.login-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 60vh;
-  padding: 40px 20px;
-  background: #e9eef5;
 }
 
 .login-container h2 {
@@ -13,7 +16,6 @@
   margin-bottom: 30px;
   color: #1a1a2e;
 }
-
 
 .login-container form {
   display: flex;

@@ -1,6 +1,7 @@
 import ItemListContainer from '../components/catalog/ItemListContainer'
 import productos from '../data/productos.json'
 import Item from '../components/catalog/Item'
+import BarraBusqueda from '../components/search/BarraBusqueda'
 
 function Home() {
   const destacados = productos.slice(0, 5)
@@ -11,7 +12,10 @@ function Home() {
         <h2 className="page-title">TropicGlass</h2>
         <p className="page-subtitle">Vasos personalizados únicos para cada momento.</p>
       </div>
-           
+
+      <div className='home-search-container'>
+        <BarraBusqueda/>
+      </div>
 
       <div className="home-section">
         <h2>Nuestras Categorías</h2>

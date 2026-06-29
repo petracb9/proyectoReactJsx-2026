@@ -4,7 +4,6 @@ import './Layout.css'
 
 
 function Layout ({ children }) {
-  console.log('Layout render')
   return (
     <div className="layout">
       <Header /> 

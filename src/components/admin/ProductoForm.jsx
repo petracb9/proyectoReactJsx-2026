@@ -12,10 +12,8 @@ function ProductoForm({ onSubmit, initialData = {}, isEditMode = false, producto
   })
 
   useEffect(() => {
-    // Se prefiere utilizar «initialData» explícito; en caso contrario, se recurre a la propiedad 'producto' por motivos de compatibilidad.
     const dataSource = (initialData && Object.keys(initialData).length) ? initialData : producto
     if (isEditMode && dataSource) {
-      //campos numéricos de tipo cadena en los campos de entrada
       setFormData({
         nombre: dataSource.nombre || '',
         categoria: dataSource.categoria || '',
@@ -38,8 +36,7 @@ function ProductoForm({ onSubmit, initialData = {}, isEditMode = false, producto
   const handleSubmit = (e) => {
     e.preventDefault()
 
- 
-    const precioSanitized = formData.precio != null && formData.precio !== ''
+     const precioSanitized = formData.precio != null && formData.precio !== ''
       ? Number(String(formData.precio).replace(/\./g, '').replace(/,/g, '.'))
       : 0
 

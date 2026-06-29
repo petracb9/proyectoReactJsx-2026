@@ -3,7 +3,6 @@ import Navbar from "./Navbar"
 import './Header.css'
 
 function Header() {
-  console.log('Header render')
   return (
     <header className="header">
       <div className='header-brand'>

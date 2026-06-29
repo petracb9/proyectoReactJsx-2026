@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect,useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate, Link } from 'react-router-dom'
 import { updateProfile } from 'firebase/auth'
@@ -15,6 +15,13 @@ function Registro() {
     const [confirmarPassword, setConfirmarPassword] = useState('')
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+
+     useEffect(()=> {
+            document.body.classList.add('login-bg')
+            return () => {
+                document.body.classList.remove('login-bg')
+            }
+        }, [])
 
     async function handleSubmit(e) {
         e.preventDefault()

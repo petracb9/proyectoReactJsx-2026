@@ -1,6 +1,7 @@
 import Item from "./Item"
 import './ItemList.css'
 
+
 function ItemList({ productos }) {
   return (
     <div className="catalogo-grid">

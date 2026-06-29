@@ -9,12 +9,12 @@ function ProductoDetalle() {
   const { addToCart } = useCart()
 
   const producto = productos.find(p => p.id === Number(id))
-
+  
   if (!producto) {
-   return (
+    return (
       <div className="page-not-found">
         <h2>Producto no encontrado</h2>
-        <Link to="/productos">Volver al catálogo</Link>
+        <Link to="/productos" className="producto-link">Volver al catálogo</Link>
       </div>
     )
   }
@@ -34,9 +34,8 @@ function ProductoDetalle() {
         <strong className="detalle-precio">
           ${producto.precio.toLocaleString('es-AR')}
         </strong>
-      
         <button className="item-btn" onClick={handleAddToCart}>
-           Agregar al carrito
+          Agregar al carrito
         </button>
       </div>
     </div>

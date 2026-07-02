@@ -1,16 +1,13 @@
-.layout {
+.layout .main-content {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-.main-content {
   flex: 1;
   padding: 16px;
 }
 
 /* Contenedor responsivo 27.06.2026*/
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
   .main-content { padding: 24px;}
 }
 
@@ -20,8 +17,8 @@
     margin: 0 auto;
     width: 100%;
     padding: 32px;
-  }
-}
+  }eliminar aqui lo comentado si funciona la App*/
+
 
 
 

@@ -1,10 +1,10 @@
 import ItemListContainer from '../components/catalog/ItemListContainer'
 
 
-function Productos(/*agregarAlCarrito*/) {
+function Productos() {
   return (
     <div className="productos-page">
-      <ItemListContainer /*agregarAlCarrito={agregarAlCarrito}*/ />
+      <ItemListContainer />
     </div>
   )
 }

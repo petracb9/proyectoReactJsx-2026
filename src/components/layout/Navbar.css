@@ -1,86 +1,91 @@
 .navbar {
-  padding: 0 24px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px 34px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+} 
+
+.navbar-brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
 }
 
-.navbar ul {
+.header-logo {
+  height: 42px;
+  width: auto;
+  object-fit: block;
+}
+
+.navbar-brand-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1;
+}
+
+.nav-links-wrapper {
   list-style: none;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0;
+  gap: 10px;
   margin: 0;
   padding: 0;
 }
 
-.navbar li {
-  list-style: none;
-}
-
 .navbar a,
-.navbar .nav-logout
-/*.navbar .dropdown-btn*/ {
+.navbar .nav-logout {
   color: #8484a1;
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
-  padding: 12px 18px;
-  display: block;
-  border-bottom: 2px solid transparent;
-  cursor: pointer;
-  font-family: inherit;
-  background: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
  }
 
 .navbar a:hover,
-.navbar .nav-logout:hover
-/*.navbar .dropdown-btn*/:hover {
-  color: #e8b84b;
+.navbar a.active,
+.navbar .nav-logout:hover {
+  color: #ff7f50;
 }
 
-.dropdown {
-  position: relative;
-}
-/*Selector ejecutando a desplegar el menu*/
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fcfbfd;
-  border: 0.5px solid #e8e0d0;
-  border-radius: 8px;
-  list-style: none;
-  padding: 6px 0;
-  min-width: 160px;
-  z-index: 100;
-  flex-direction: column;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.dropdown-menu li a {
-  padding: 10px 12px;
-  display: block;
-  border-bottom: none;
-  color: #0c0cc8;
-  font-size: 16px;
-  white-space: nowrap;
-}
-
-.dropdown-menu li a:hover {
-  background: #f0e8d8;
-  color: #854F0B;
+.menu-hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #1a1a2e;
+  cursor: pointer; 
 }
 
 /*Carrito*/
+.cart-item-li {
+  display: flex;
+  align-items: center;
+}
+
 .cart-link  {
   position: relative;
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
-  padding: 6px 12px;
-  text-decoration: none;
-  font-size: 22px;
+  padding: 8px 12px !important;
+  justify-content: center;
 }
 
 .cart-icon {
@@ -89,8 +94,8 @@
 
 .navbar .cart-count {
   position: absolute;
-  top: 0px;
-  right: 2px;
+  top: -2px;
+  right: 20px;
   background: #e8b84b;
   color: #1a1a2e;
   font-size: 11px;
@@ -101,14 +106,95 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 4px;
+  z-index: 10; 
 }
 
-.hamburger span {
-  display: block;
-  width: 24px;
-  height: 200px;
-  background: #2e1a1f;
-  border-radius: 2px;
-  transition: all 0.3s;
+@media screen and (max-width: 850px) {
+  .navbar a, .navbar .nav-logout {
+    padding: 12px 10px;
+    font-size: 15px;
+  }
 }
+
+@media screen and (max-width: 640px) {
+  .menu-hamburger-btn {
+    display: flex;
+  }
+
+  .navbar-brand-wrapper {
+    position: relative;
+    display: flex;
+    top: 100%; 
+    right: 15px;
+    width: 100%;
+  }
+
+  .nav-links-wrapper {
+    position: absolute;
+    height: auto !important;
+    max-height: 400px;
+    padding-bottom: 20px;
+    background-color: #ffff;
+    top: 100%; 
+    left: -100%; 
+    width: 100%;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .nav-links-wrapper.active {
+    left: 0;
+  }
+
+  .nav-links-wrapper li {
+    width: 100%;
+  }
+
+  .nav-links-wrapper li {
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-links-wrapper a, 
+  .nav-links-wrapper .nav-logout {
+    width: 100%;
+    padding: 8px 30px;
+    text-align: left;
+  }
+
+  .cart-item-li {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 8px;
+    padding: 8px 30px;
+  }
+
+  .cart-link  {
+    position: relative;
+    display: inline-flex !important;
+    width: auto !important;
+    padding: 8px 12px !important;
+    background: transparent !important;
+  }
+
+  .cart-icon {
+    font-size: 24px;
+  }
+
+  .nav-links-wrapper .cart-count {
+    position: absolute !important;              
+    background: #e8b84b;
+    color: #1a1a2e;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+} 

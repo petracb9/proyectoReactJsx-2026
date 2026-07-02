@@ -10,15 +10,6 @@ function ProductoDetalle() {
 
   const producto = productos.find(p => p.id === Number(id))
   
-  if (!producto) {
-    return (
-      <div className="page-not-found">
-        <h2>Producto no encontrado</h2>
-        <Link to="/productos" className="producto-link">Volver al catálogo</Link>
-      </div>
-    )
-  }
-
   function handleAddToCart() {
     addToCart(producto)
     navigate('/carrito')

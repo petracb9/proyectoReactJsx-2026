@@ -9,8 +9,8 @@ import './index.css'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-        <CartProvider>
+        <AuthProvider>
+          <CartProvider>
           <App />
         </CartProvider>
       </AuthProvider>

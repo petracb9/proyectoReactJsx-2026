@@ -47,6 +47,7 @@ function Registro() {
     return (
         <div className="login-container">
             <h2>Crear Cuenta</h2>
+         <div className='login-form'> 
             <form onSubmit={handleSubmit}>
 
                 <div className="form-group">
@@ -98,6 +99,8 @@ function Registro() {
                     {loading ? 'Registrando...' : 'Registrarse'}
                 </button>
             </form>
+         </div>
+
             <p>¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link></p>
         </div>
     )

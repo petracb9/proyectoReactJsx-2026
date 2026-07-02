@@ -8,8 +8,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
+  min-height: 80vh;
 }
+
+.login-form {
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+  }
 
 .login-container h2 {
   font-size: 24px;
@@ -20,12 +29,9 @@
 .login-container form {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 350px;
-  padding: 30px;
-  background-color: #f5f5f5;
+  width: 100%; 
+  background: #ebf0f6;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -108,3 +114,37 @@
   text-decoration: none;
   color: #1a1a2e;
 }
+
+@media screen and (max-width: 768px) {
+  .login-container {
+    min-height: calc(100vh - 150px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f0f4f8;
+  }
+
+  .login-form {
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+  }
+}   
+
+@media screen and (max-width: 480px) {
+  .login-container {
+    min-height: calc(100vh - 350px);
+    padding: 50px 10px;
+    background-color: #f0f4f8;
+  }
+
+  .login-form {
+    padding: 24px 16px;
+    box-shadow: none;
+    max-width: 80%;
+  }
+}   

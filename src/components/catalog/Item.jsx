@@ -6,7 +6,6 @@ function Item({ producto }) {
   const { addToCart } = useCart()
   const { id, nombre, precio, descripcion, imagen, categoria } = producto
 
-
   return (
     <div className='item-list-grid'>
       <div className="item-card">
@@ -27,5 +26,6 @@ function Item({ producto }) {
     </div>
   )
 }
+
 
 export default Item

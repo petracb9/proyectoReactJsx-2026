@@ -12,10 +12,10 @@ function Categorias() {
   );
 
   return (
-    <div className="categories-page">
-      <div className="page-title">
-        <h2>Categorías</h2>
-        <p>Elige el estilo de vaso ideal para cada bebida.</p>
+    <div className='categories-page'>
+      <div className='categories-intro'>
+        <h2 className='page-title'>Categorías</h2>
+        <p className='page-subtitle'>Elige el estilo de vaso ideal para cada bebida.</p>
       </div>
 
       <div className="category-section">

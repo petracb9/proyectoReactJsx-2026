@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../../context/CartContext'
 import { useAuth } from '../../context/AuthContext'
+import { FiMenu, FiX} from 'react-icons/fi'
 import './Navbar.css'
 
 function Navbar() {
@@ -9,15 +10,9 @@ function Navbar() {
   const { totalItems } = useCart()
   const { user, logout } = useAuth()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  function toggleDropdown() {
-    setIsDropdownOpen(!isDropdownOpen)
-  }
+  /*const [isDropdownOpen, setIsDropdownOpen] = useState(false)*/
+  const toggleMenu = () => {setIsMenuOpen(!isMenuOpen)}
+  const cerrarMenu = () => {setIsMenuOpen(false)}
 
   async function handleLogout() {
     try {
@@ -30,33 +25,44 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <ul>
-        <li><Link to="/">Inicio</Link></li>
-        <li><Link to="/categorias">Categorías</Link></li>
-        <li><Link to="/productos">Productos</Link></li>
-        {user && (
-          <li><Link to="/admin">Admin</Link></li>
-        )}
-      </ul>
-       
-        {!user ? (
-          <>
-            <li><Link to="/login">Ingresar</Link></li>
-            <li><Link to="/registro">Registrarse</Link></li>
-          </>                 
-        ) : (
-          <>
-            <li><Link to="/perfil">Perfil</Link></li>
-            <li><button onClick={handleLogout} className='nav-logout'>Salir</button></li>
-          </>
-        )}
+      <div className="navbar-container">
+        <Link to="/" className="navbar-brand-wrapper" onClick={cerrarMenu}>
+          <img src="/images/logo.png" alt="Logo" className="header-logo" />
+          <span className="navbar-brand-title">TropicGlass</span>
+        </Link>
 
-        <li>
-          <Link to="/carrito" className='cart-link'>
-          <span className="cart-icon">🛒</span>
-          {totalItems > 0 && (<span className='cart-count'>{totalItems}</span>)}
-          </Link>
-        </li>
+        <button className="menu-hamburger-btn" onClick={toggleMenu} aria-label="Abrir menú">
+          {isMenuOpen ? <FiX /> : <FiMenu />}
+        </button>
+
+        <ul className={`nav-links-wrapper ${isMenuOpen ? 'active' : ''}`}>
+          <li><Link to="/" onClick={cerrarMenu}>Inicio</Link></li>
+          <li><Link to="/categorias" onClick={cerrarMenu}>Categorías</Link></li>
+          <li><Link to="/productos" onClick={cerrarMenu}>Productos</Link></li>
+          {user && (
+            <li><Link to="/admin" onClick={cerrarMenu}>Admin</Link></li>
+          )}
+
+          {!user ? (
+            <>
+              <li><Link to="/login" onClick={cerrarMenu}>Ingresar</Link></li>
+              <li><Link to="/registro" onClick={cerrarMenu}>Registrarse</Link></li>
+            </>
+          ) : (
+            <>
+              <li><Link to="/perfil" onClick={cerrarMenu}>Perfil</Link></li>
+              <li><button onClick={handleLogout} className='nav-logout'>Salir</button></li>
+            </>
+          )}
+
+          <li className='cart-item-li'>
+            <Link to="/carrito" className='cart-link' onClick={cerrarMenu}>
+              <span className="cart-icon">🛒</span>
+              {totalItems > 0 && <span className='cart-count'>{totalItems}</span>}
+            </Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   )
 }

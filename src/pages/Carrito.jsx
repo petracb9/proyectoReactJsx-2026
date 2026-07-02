@@ -4,7 +4,6 @@ import './Carrito.css'
 
 function Carrito() {
   const { carrito, removeFromCart, clearCart, totalItems, totalPrecio } = useCart()
-
   
   if (carrito.length === 0) {
      return (
@@ -12,10 +11,10 @@ function Carrito() {
         <span className="carrito-empty-icon">🛒</span>
         <h2>Tu carrito esta vacio</h2>
         <p>Todavia no agregaste productos.</p>
-        <Link to="/productos" className="cart-btn">Ver productos</Link>
+        <Link to="/productos" className="cart-btn-link">Ver productos</Link>
       </div>
-    )
-  }
+     )
+   }
 
   return (
     <div className="carrito-container">
@@ -25,8 +24,7 @@ function Carrito() {
             {carrito.map((producto) => (
               <div key={producto.id} className="cart-item">
                 <div className="cart-item-header">
-                  <h3>{producto.nombre}</h3>
-                  
+                  <h3>{producto.nombre}</h3>               
                 </div>
                 <p>Categoría: {producto.categoria}</p>
                 <p>Cantidad: {producto.cantidad}</p>
@@ -37,7 +35,7 @@ function Carrito() {
                     onClick={() => removeFromCart(producto.id)}
                   >
                     Eliminar
-                  </button>
+                </button>
               </div>
             ))}
       </div>

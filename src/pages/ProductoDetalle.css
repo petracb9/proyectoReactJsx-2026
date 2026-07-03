@@ -80,8 +80,7 @@
     flex-direction: column;  
     gap: 20px;
     padding: 24px 16px;
-    text-align: center;
-    background: #ff7f50; 
+    text-align: center; 
   }     
 
   .detalle-img {

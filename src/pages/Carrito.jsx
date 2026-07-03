@@ -5,6 +5,7 @@ import './Carrito.css'
 function Carrito() {
   const { carrito, removeFromCart, clearCart, totalItems, totalPrecio } = useCart()
   
+
   if (carrito.length === 0) {
      return (
       <div className="carrito-vacio">
@@ -46,7 +47,7 @@ function Carrito() {
             <button className="cart-clear" onClick={clearCart}>
               Vaciar carrito
             </button>
-            <Link to="/productos" className="cart-link">
+            <Link to="/productos" className="cart-link-btn">
               Seguir comprando 
             </Link>
             <button className="cart-btn">

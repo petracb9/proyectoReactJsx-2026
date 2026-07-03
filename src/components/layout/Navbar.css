@@ -46,8 +46,7 @@
   padding: 0;
 }
 
-.navbar a,
-.navbar .nav-logout {
+.navbar a {
   color: #8484a1;
   text-decoration: none;
   font-size: 18px;
@@ -59,9 +58,7 @@
   transition: color 0.2s ease;
  }
 
-.navbar a:hover,
-.navbar a.active,
-.navbar .nav-logout:hover {
+.navbar a:hover{
   color: #ff7f50;
 }
 
@@ -74,7 +71,7 @@
   cursor: pointer; 
 }
 
-/*Carrito*/
+
 .cart-item-li {
   display: flex;
   align-items: center;
@@ -109,14 +106,14 @@
   z-index: 10; 
 }
 
-@media screen and (max-width: 850px) {
-  .navbar a, .navbar .nav-logout {
+@media screen and (max-width: 768px) {
+  .navbar a {
     padding: 12px 10px;
     font-size: 15px;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 480px) {
   .menu-hamburger-btn {
     display: flex;
   }
@@ -156,8 +153,7 @@
     text-align: left;
   }
 
-  .nav-links-wrapper a, 
-  .nav-links-wrapper .nav-logout {
+  .nav-links-wrapper a  {
     width: 100%;
     padding: 8px 30px;
     text-align: left;

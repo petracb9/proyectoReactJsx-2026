@@ -49,11 +49,3 @@
 .search-button:hover .search-icon {
   color: #ff7f50;
 }
-
-/*
-@media (min-width: 768px) {
-  .buscador-input {
-    font-size: 15px;
-  }
-}
-*/

@@ -10,7 +10,6 @@ function CartProvider({ children }) {
   const [carrito, setCarrito] = useState([])
   console.log('CartProvider init')
 
-  // Agrega producto o incrementa cantidad si ya existe
   function addToCart(producto) {
     setCarrito(prev => {
       const existe = prev.find(item => item.id === producto.id)
@@ -33,6 +32,24 @@ function CartProvider({ children }) {
     setCarrito([])
   }
 
+  function cantidadMas(id) {
+    setCarrito(prev =>
+    prev.map(item =>
+      item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item
+    )
+   )
+  }
+
+  function cantidadMenos(id) {
+    setCarrito(prev =>
+    prev.map(item =>
+      item.id === id && item.cantidad > 1
+        ? { ...item, cantidad: item.cantidad - 1 }
+        : item
+    )
+   )
+  }
+
   const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0)
 
   const totalPrecio = carrito.reduce(
@@ -45,6 +62,9 @@ function CartProvider({ children }) {
       addToCart,
       removeFromCart,
       clearCart,
+
+      cantidadMas,
+      cantidadMenos,
       
       totalItems,
       totalPrecio

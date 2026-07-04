@@ -27,13 +27,15 @@ La arquitectura del proyecto está organizada de manera modular basándose en ru
 <details>
 <summary>📂 Haz clic aquí para desplegar el árbol de archivos</summary>
 
-```text
+```proyectoReactJsx
 public/
-└── data/
-    └── productos.json        # Base de datos simulada
+└── images/
+    |        
 
 src/
 ├── components/
+|   |__ data/
+|   |  └── productos.jso     # Base de datos simulada
 │   ├── Layout/              # Componentes de estructura global
 │   │   ├── Header.jsx / .css
 │   │   ├── Navbar.jsx / .css
@@ -46,15 +48,20 @@ src/
 │       └── Item.jsx / .css
 │
 ├── context/                 # Estado global de la aplicación (CRUD)
+│   └── AuthContext.jsx
 │   └── CartContext.jsx
 │
 ├── pages/                   # Vistas principales de la aplicación
 │   ├── Carrito.jsx
 │   ├── Categorias.jsx
 │   ├── Home.jsx
+│   ├── Login.jsx
+│   ├── Perfil.jsx
 │   ├── ProductoDetalle.jsx
 │   └── Productos.jsx
 │
 ├── App.jsx                  # Enrutador principal
 ├── main.jsx
 └── index.css
+
+##

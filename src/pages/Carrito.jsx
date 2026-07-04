@@ -4,7 +4,6 @@ import './Carrito.css'
 
 function Carrito() {
   const { carrito, removeFromCart, clearCart, totalItems, totalPrecio } = useCart()
-  
 
   if (carrito.length === 0) {
      return (
@@ -22,38 +21,42 @@ function Carrito() {
       <h2 className="page-title">Tu Carrito</h2>
   
       <div className="cart-list">
-            {carrito.map((producto) => (
-              <div key={producto.id} className="cart-item">
-                <div className="cart-item-header">
-                  <h3>{producto.nombre}</h3>               
-                </div>
-                <p>Categoría: {producto.categoria}</p>
-                <p>Cantidad: {producto.cantidad}</p>
-                <p>Precio unitario: ${producto.precio.toLocaleString('es-AR')}</p>
-                <p>Subtotal: ${(producto.precio * producto.cantidad).toLocaleString('es-AR')}</p>
-                <button
-                    className="cart-remove"
-                    onClick={() => removeFromCart(producto.id)}
-                  >
-                    Eliminar
-                </button>
+          {carrito.map((producto) => (
+          <div key={producto.id} className="cart-item">
+            <div className="cart-item-top-row">
+              <div className="cart-item-detalle">
+                <h3>{producto.nombre}</h3>
+                <span className='cart-item-categoria'>Categoría: {producto.categoria}</span>               
               </div>
-            ))}
-      </div>
+              <div className='cart-item-meta'>
+                <span className='cart-item-cantidad'>Cantidad: <strong>{producto.cantidad}</strong></span>
+                <span className='cart-item-precio'>Precio unitario: ${producto.precio.toLocaleString('es-AR')}</span>
+                <span className='cart-item-subtotal'>Subtotal: <strong>${(producto.precio * producto.cantidad).toLocaleString('es-AR')}</strong></span>
+              </div>
+            </div>
+            <button
+                className="cart-delete-btn"
+                onClick={() => removeFromCart(producto.id)}
+              >
+                Eliminar
+            </button>
+          </div>     
+          ))}      
+      </div> 
 
-          <div className="cart-summary">
-            <p>Total unidades: {totalItems}</p>
-            <p>Total precio: ${totalPrecio.toLocaleString('es-AR')}</p>
-            <button className="cart-clear" onClick={clearCart}>
-              Vaciar carrito
-            </button>
-            <Link to="/productos" className="cart-link-btn">
-              Seguir comprando 
-            </Link>
-            <button className="cart-btn">
-              Finalizar compra
-            </button>
-          </div>
+      <div className="cart-summary">
+        <p>Total unidades: {totalItems}</p>
+        <p>Total precio: ${totalPrecio.toLocaleString('es-AR')}</p>
+        <button className="cart-clear" onClick={clearCart}>
+          Vaciar carrito
+        </button>
+        <Link to="/productos" className="cart-link-btn">
+          Seguir comprando 
+        </Link>
+        <button className="cart-btn">
+          Finalizar compra
+        </button>
+      </div>
     </div>
   )
 }

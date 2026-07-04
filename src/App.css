@@ -173,7 +173,6 @@
 
 /*----------------Medias Queries responsive--------------*/
 @media screen and (max-width: 768px) {
-
   .home-intro .page-title,
   .categories-intro .page-title,
   .item-list-title h2 {
@@ -193,7 +192,6 @@
 }
 
 @media screen and (max-width: 480px) {
-
   .home-page,
   .categories-page,
   .catalog-container {
@@ -218,7 +216,6 @@
     gap: 15px;
     margin: 15px 0;
   }
-
 
   .producto-link-volver {
     width: 100%;

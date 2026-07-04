@@ -10,7 +10,6 @@ function Navbar() {
   const { totalItems } = useCart()
   const { user, logout } = useAuth()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  /*const [isDropdownOpen, setIsDropdownOpen] = useState(false)*/
   const toggleMenu = () => {setIsMenuOpen(!isMenuOpen)}
   const cerrarMenu = () => {setIsMenuOpen(false)}
 
@@ -51,7 +50,7 @@ function Navbar() {
           ) : (
             <>
               <li><Link to="/perfil" onClick={cerrarMenu}>Perfil</Link></li>
-              <li><button onClick={handleLogout} className='nav-logout'>Salir</button></li>
+              <li><button onClick={handleLogout} className='nav-logout'>Salir</button></li> 
             </>
           )}
 

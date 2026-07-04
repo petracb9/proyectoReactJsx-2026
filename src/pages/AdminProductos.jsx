@@ -15,7 +15,7 @@ const AdminProductos = () => {
 
   const productosRef = collection(db, 'productos')
 
-  // Función para cargar y leer todos los productos desde Firestore
+ 
   async function cargarProductos() {
     try {
       const data = await getDocs(productosRef)
@@ -33,7 +33,7 @@ const AdminProductos = () => {
     cargarProductos()
   }, [])
 
-  // Función para agregar un nuevo producto a Firestore
+  
   async function agregarProducto(producto) {
     try {
       await addDoc(productosRef, producto)
@@ -44,7 +44,7 @@ const AdminProductos = () => {
     }
   }
 
-  // Función para actualizar un producto existente en Firestore
+  
   async function actualizarProducto(id, productoActualizado) {
     try {
       const productoRef = doc(db, 'productos', id)
@@ -56,7 +56,7 @@ const AdminProductos = () => {
     }
   }
 
-  // Función para eliminar un producto de Firestore
+
   async function eliminarProducto(id) {
     try {
       const productoRef = doc(db, 'productos', id)
@@ -68,17 +68,14 @@ const AdminProductos = () => {
     }
   }
 
-  // Función para abrir el modal de confirmación
   const abrirModalConfirmacion = (message, onConfirm) => {
     setModalData({ isOpen: true, message, onConfirm })
   }
 
-  // Función para cerrar el modal de confirmación
   const cerrarModalConfirmacion = () => {
     setModalData({ isOpen: false, message: '', onConfirm: null })
   }
 
-  // Función para manejar la confirmación de eliminación
   const manejarConfirmacionEliminar = (id) => {
     abrirModalConfirmacion('¿Estás seguro de que deseas eliminar este producto?', () => {
       eliminarProducto(id)
@@ -86,7 +83,6 @@ const AdminProductos = () => {
     })
   }
 
-  //Determinar si se está editando un producto o agregando uno nuevo
   function manejarSubmit(producto) {
     if (productoEditar) {
       actualizarProducto(productoEditar.id, producto)
@@ -97,58 +93,61 @@ const AdminProductos = () => {
   }
 
   return (
-    <div className="admin-container">
-      <h2>Administración de Productos</h2>
-
-      {/* Formulario para agregar o editar productos */}
-      <ProductoForm 
-        initialData={productoEditar || {}}
-        isEditMode={!!productoEditar}
-        onSubmit={manejarSubmit}
-        onCancelar={() => setProductoEditar(null)}
-      />
-
-      {/* Cargando lista de productos */}
-      {loading ? (
-        <p>Cargando productos...</p>
-      ) : error ? (
-        <p>{error}</p>
-      ) : (
-        <div className="table-wrapper">
-          <table className="admin-table">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {productos.map((producto) => (
-                <tr key={producto.id}>
-                  <td>{producto.nombre}</td>
-                  <td className="price">{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(Number(producto.precio))}</td>
-                  <td>
-                    <button type="button" className="edit-btn" onClick={() => setProductoEditar(producto)}>Editar</button>
-                    <button type="button" className="delete-btn" onClick={() => manejarConfirmacionEliminar(producto.id)}>Eliminar</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-
-      {modalData.isOpen && (
-        <ModalConfirmar
-          isOpen={modalData.isOpen}
-          message={modalData.message}
-          onConfirm={modalData.onConfirm}
-          onCancel={cerrarModalConfirmacion}
+    <div className="admin-page-container">
+      <div className="admin-page-header">
+        <h1 className="admin-title">Panel de Administración</h1>
+        <p className="admin-subtitle">Gestión y control del catálogo de productos</p>
+      </div>
+      <div className="admin-container">
+        <ProductoForm 
+          initialData={productoEditar || {}}
+          isEditMode={!!productoEditar}
+          onSubmit={manejarSubmit}
+          onCancelar={() => setProductoEditar(null)}
         />
-      )}
+
+        {/* Cargando lista de productos */}
+        {loading ? (
+          <p>Cargando productos...</p>
+        ) : error ? (
+          <p>{error}</p>
+        ) : (
+          <div className="table-wrapper">
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {productos.map((producto) => (
+                  <tr key={producto.id}>
+                    <td className='nombre'>{producto.nombre}</td>
+                    <td className="price">{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(Number(producto.precio))}</td>
+                    <td className='acciones'>
+                      <button type="button" className="edit-btn" onClick={() => setProductoEditar(producto)}>Editar</button>
+                      <button type="button" className="delete-btn" onClick={() => manejarConfirmacionEliminar(producto.id)}>Eliminar</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {modalData.isOpen && (
+          <ModalConfirmar
+            isOpen={modalData.isOpen}
+            message={modalData.message}
+            onConfirm={modalData.onConfirm}
+            onCancel={cerrarModalConfirmacion}
+          />
+        )}
+      </div>
     </div>
-  )
+   )
 }
 
 export default AdminProductos

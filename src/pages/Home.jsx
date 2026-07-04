@@ -3,7 +3,9 @@ import productos from '../data/productos.json'
 import Item from '../components/catalog/Item'
 import Header from '../components/layout/Header'
 import BarraBusqueda from '../components/search/BarraBusqueda'
-import { FiPercent, FiCoffee, FiGift } from 'react-icons/fi'
+//import { CiGlass } from 'react-icons/ci'
+import { LiaGlassMartiniAltSolid,LiaGlassWhiskeySolid,LiaGlassCheersSolid } from 'react-icons/lia'
+//import { FiPercent, FiCoffee, FiGift } from 'react-icons/fi'
 
 
 function Home() {
@@ -33,7 +35,7 @@ function Home() {
 
             <div className="category-card">
               <div className="category-icon-wrapper icon-tropical">
-                <FiPercent />
+                <LiaGlassMartiniAltSolid />
               </div>
               <h3>Vasos altos tropicales</h3>
               <p>Ideales para tragos frescos, jugos, cócteles frutales y bebidas con hielo.</p>
@@ -41,7 +43,7 @@ function Home() {
 
             <div className="category-card">
               <div className="category-icon-wrapper icon-premiun">
-                <FiCoffee />
+                <LiaGlassWhiskeySolid />
               </div>
               <h3>Vasos cortos premium</h3>
               <p>Perfectos para whisky, tragos clásicos, degustaciones y regalos personalizados.</p>
@@ -49,7 +51,7 @@ function Home() {
 
             <div className="category-card">
               <div className="category-icon-wrapper icon-soon">
-                <FiGift />
+                <LiaGlassCheersSolid />
               </div>
               <h3>Vasos ediciones especiales</h3>
               <p>Diseños exclusivos para temporadas, bodas, aniversarios y eventos corporativos.</p>

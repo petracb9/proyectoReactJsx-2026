@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom'
 import './Carrito.css'
 
 function Carrito() {
-  const { carrito, removeFromCart, clearCart, totalItems, totalPrecio } = useCart()
+  const { 
+    carrito, 
+    removeFromCart, 
+    clearCart,
+    cantidadMas, 
+    cantidadMenos, 
+    totalItems, 
+    totalPrecio,  
+  } = useCart()
 
   if (carrito.length === 0) {
      return (
@@ -26,10 +34,25 @@ function Carrito() {
             <div className="cart-item-top-row">
               <div className="cart-item-detalle">
                 <h3>{producto.nombre}</h3>
-                <span className='cart-item-categoria'>Categoría: {producto.categoria}</span>               
+                <span className='cart-item-categoria'>Categoría: {producto.categoria}</span>
               </div>
+              
               <div className='cart-item-meta'>
-                <span className='cart-item-cantidad'>Cantidad: <strong>{producto.cantidad}</strong></span>
+
+                <div className="cart-item-acciones">
+
+                  <button className="btn-contador btn-minus" 
+                    onClick={() => cantidadMenos(producto.id)}>
+                    {producto.cantidad === 1 ? '🗑️' : '−'}
+                  </button>
+                  
+                  <span className='cart-item-number'>{producto.cantidad}</span>
+                        
+                  <button className="btn-contador" 
+                    onClick={() => cantidadMas(producto.id)}
+                  >+</button>
+                </div>
+                               
                 <span className='cart-item-precio'>Precio unitario: ${producto.precio.toLocaleString('es-AR')}</span>
                 <span className='cart-item-subtotal'>Subtotal: <strong>${(producto.precio * producto.cantidad).toLocaleString('es-AR')}</strong></span>
               </div>

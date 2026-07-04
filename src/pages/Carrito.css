@@ -66,14 +66,25 @@
 
 .cart-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 12px;
   background: #edecef;
-  padding: 16px;
+  padding: 20px 24px;
   border-radius: 12px;
   margin-bottom: 12px;
-  align-items: stretch;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.cart-item-top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+    flex: 1;
+    margin-right: 48px;
+    width: 100%;
+  }
 
 .cart-item-detalle {
   display: flex;
@@ -103,10 +114,54 @@
   margin-right: 24px;
 }
 
-.cart-item-cantidad, 
+.cart-item-acciones {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f6f6;
+  border: 3px solid #ff7f50;
+  border-radius: 50px;
+  padding: 2px 8px;
+  min-width: 110px;
+  height: 36px;
+  box-sizing: border-box;
+}
+
+.btn-contador {
+  background: transparent;
+  border: none;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease;
+  padding: 0;
+}
+
+.btn-contador:hover {
+  transform: scale(1.14);
+}
+
+.btn-minus {
+  font-size: 18px;
+}
+
+.cart-item-number {
+  font-size: 16px;
+  color: #000000;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+ 
 .cart-item-precio {
   font-size: 16px;
-  color: #475569;
+  color: #2f3945;
   white-space: nowrap;
 }
 
@@ -205,21 +260,39 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 14px;
-    background: #efecec;
+    background: #edecef;
   }
 
-  .cart-item-meta {
-    flex: 3;
+  .cart-item-top-row {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between; 
     align-items: center;
-    gap: 32px;
-    margin-right: 32px;
+    flex: 1;
+    margin-right: 50px;
+    width: 50%;
+    gap: 10px;
   }
 
-  .cart-item-categoria,
-  .cart-item-cantidad, 
+  .cart-item-detalle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+  }
+  
+  .cart-item-meta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cart-item-acciones{
+     padding: 6px;
+  }
+
+  .cart-item-categoria, 
   .cart-item-precio {
     font-size: 14px;
     color: #475569;
@@ -235,10 +308,9 @@
 
   .cart-delete-btn {
     border: 1px solid #d77f22;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.2s ease;
+    white-space: nowrap;
+    padding: 10px 12px;
+    height: fit-content;
   }
 
   .cart-delete-btn {
@@ -268,6 +340,11 @@
     padding: 10px;
   }
 
+.carrito-container 
+.page-title {
+  margin-bottom: 8px;
+  font-size: 30px;
+}
   .cart-list {
     display: flex;
     flex-direction: column;
@@ -276,32 +353,15 @@
 
   .cart-item {
     flex-direction: column;
-    display: flex;
-    flex: 3;  
-    background-color: #edecef;
-    border-radius: 12px;
-    gap: 14px;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 10px;
+    align-items: stretch;
+    padding: 16px 20px;
   }
 
   .cart-item-top-row {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    align-items: flex-start;
-    gap: 20px;
-    width: 100%;
-  }
-
-  .cart-item-detalle {
-    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    gap: 4px;
-    flex: 1;
+    align-items: flex-start; 
+    width: 100%;
   }
 
   .cart-item-detalle h3 {
@@ -317,16 +377,17 @@
   }
 
   .cart-item-meta {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+    align-items: flex-start;
+    width: 100%;
     gap: 6px;
-    flex: 1;
   }
 
-  .cart-item-cantidad, 
+  .cart-item-acciones {
+    margin-bottom: 4px;
+  }
+ 
   .cart-item-precio {
     font-size: 13px;
     color: #475569;
@@ -341,18 +402,12 @@
 
   .cart-delete-btn {
     align-self: center;
-    width: auto;
-    min-width: 120px;
-    padding: 8px 16px;
-    background-color: #ffffff;
-    color: #ef4444;
-    border: 1px solid #fca5a5;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 13px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: all 0.2s ease;
+    max-width: 150px;
+    padding: 8px 6px;
+    width: 100%;
+    margin-top: 12px;
   }
 
   .cart-delete-btn:active {

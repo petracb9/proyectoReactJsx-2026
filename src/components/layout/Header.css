@@ -1,4 +1,3 @@
-
 .header {
   width: 100%;
   box-shadow: 0 2px 8px rgba(4, 4, 4, 0.05);
@@ -56,7 +55,7 @@
 }
 /*--------------@media-----------------*/
 
-@media screen /*and (min-width: 641px)*/ and (max-width: 768) {
+@media screen and (max-width: 768) {
   .hero { 
     min-height: 320px;
    }

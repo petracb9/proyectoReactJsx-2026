@@ -106,7 +106,6 @@ const AdminProductos = () => {
           onCancelar={() => setProductoEditar(null)}
         />
 
-        {/* Cargando lista de productos */}
         {loading ? (
           <p>Cargando productos...</p>
         ) : error ? (

@@ -94,7 +94,6 @@
   color: #fff;
 }
 
-
 @media screen and (max-width: 768px) {
   .admin-table td.acciones {
     flex-direction: column !important;

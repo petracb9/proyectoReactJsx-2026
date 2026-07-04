@@ -61,7 +61,6 @@
   text-align: center;
 }
 
-/*Estilos para las grillas responsivas unificadas*/
 .category-cards-grid,
 .products-grid {
   display: grid;

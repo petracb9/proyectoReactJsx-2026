@@ -122,7 +122,7 @@
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
-    background-color: #f0f4f8;
+    background: #e4eff9;
   }
 
   .login-form {
@@ -132,6 +132,7 @@
     width: 100%;
     max-width: 450px;
     box-sizing: border-box;
+    background: #f0f3f6;
   }
 }   
 
@@ -139,12 +140,14 @@
   .login-container {
     min-height: calc(100vh - 350px);
     padding: 50px 10px;
-    background-color: #f0f4f8;
+    background: #e4eff9;
   }
 
   .login-form {
     padding: 24px 16px;
     box-shadow: none;
     max-width: 80%;
+    background: #f0f3f6;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   }
 }   

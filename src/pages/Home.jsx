@@ -3,10 +3,7 @@ import productos from '../data/productos.json'
 import Item from '../components/catalog/Item'
 import Header from '../components/layout/Header'
 import BarraBusqueda from '../components/search/BarraBusqueda'
-//import { CiGlass } from 'react-icons/ci'
 import { LiaGlassMartiniAltSolid,LiaGlassWhiskeySolid,LiaGlassCheersSolid } from 'react-icons/lia'
-//import { FiPercent, FiCoffee, FiGift } from 'react-icons/fi'
-
 
 function Home() {
   const destacados = productos.slice(0, 4)

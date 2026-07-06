@@ -6,7 +6,7 @@ import BarraBusqueda from '../search/BarraBusqueda'
 import PaginadorProductos from './PaginadorProductos'
 import './ItemListContainer.css'
 
-const POR_PAGINA = 6
+const POR_PAGINA = 2 //Para la prueba o testear el componente de paginación.
 
 const quitarAcentos = (texto) => {
   return texto ? texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "") : ""

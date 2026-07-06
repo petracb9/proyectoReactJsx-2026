@@ -19,8 +19,8 @@
 }
 
 .paginador-btn:hover:not(:disabled) {
-  border-color: #1a1a2e;
-  background: #f0ebe0;
+  border-color: #73737a;
+  background: #f4f6f8;
 }
 
 .paginador-btn:disabled {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from "react-router-dom"
-import productosData from '../../data/productos.json'
+//import productosData from '../../data/productos.json'
 import Item from './Item'
 import BarraBusqueda from '../search/BarraBusqueda'
 import PaginadorProductos from './PaginadorProductos'
@@ -10,7 +10,7 @@ const POR_PAGINA = 2 //Para la prueba o testear el componente de paginación.
 
 const quitarAcentos = (texto) => {
   return texto ? texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "") : ""
-};
+}
 
 function ItemListContainer({ categoria }) {
   const [busqueda, setBusqueda] = useState('')

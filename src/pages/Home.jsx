@@ -9,7 +9,7 @@ import BarraBusqueda from '../components/search/BarraBusqueda'
 import { LiaGlassMartiniAltSolid,LiaGlassWhiskeySolid,LiaGlassCheersSolid } from 'react-icons/lia'
 
 function Home() {
-  const [destacados, setDestacados] = useState([])
+  const [productos, setProductos] = useState([])
   const [cargando, setCargando] = useState(true)
   const navigate = useNavigate()
   useEffect(() => {
@@ -21,7 +21,7 @@ function Home() {
           id: doc.id,
           ...doc.data()
       }))
-      setDestacados(lista)
+      setProductos(lista)
     } catch (error) {
       console.error("Error al obtener productos:", error)
     } finally {

@@ -1,16 +1,44 @@
+import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import productos from '../data/productos.json'
+//import productos from '../data/productos.json'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../firebase/config'
 import Item from '../components/catalog/Item'
 import Header from '../components/layout/Header'
 import BarraBusqueda from '../components/search/BarraBusqueda'
 import { LiaGlassMartiniAltSolid,LiaGlassWhiskeySolid,LiaGlassCheersSolid } from 'react-icons/lia'
 
 function Home() {
-  const destacados = productos.slice(0, 4)
+  const [destacados, setDestacados] = useState([])
+  const [cargando, setCargando] = useState(true)
   const navigate = useNavigate()
+  useEffect(() => {
+    const obtenerProductos = async () => {
+      try {
+        setCargando(true)
+        const querySnapshot = await getDocs(collection(db, "productos"))    
+        const lista = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+      }))
+      setDestacados(lista)
+    } catch (error) {
+      console.error("Error al obtener productos:", error)
+    } finally {
+      setCargando(false)
+    }
+   }
+    obtenerProductos()
+  }, [])
 
-  const handleBuscarDesdeHome = (texto) => {
+   const handleBuscarDesdeHome = (texto) => {
     navigate(`/productos?search=${encodeURIComponent(texto)}`)
+  }
+  
+  const destacados = productos.slice(0, 4)
+
+  if (cargando) {
+    return <div>Cargando inicio...</div>
   }
 
   return (

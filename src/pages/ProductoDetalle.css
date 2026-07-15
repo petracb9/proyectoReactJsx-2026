@@ -34,7 +34,7 @@
   margin: 0;
 }
 
-.detalle-info .item-categoria {
+.detalle-info .detalle-categoria {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -56,7 +56,7 @@
   margin: 8px 0;
 }
 
- .detalle-info .item-btn {
+ .detalle-info .detalle-btn {
   width: 220px;
   background: #e8b84b;
   color: #1a1a2e;
@@ -68,7 +68,7 @@
   cursor: pointer;
 }
 
-.detalle-info .item-btn:hover {
+.detalle-info .detalle-btn:hover {
   background: #ff7f50;
   color: #ffff;
 }
@@ -108,7 +108,7 @@
     font-size: 24px;
   }
 
-  .detalle-info .item-btn {
+  .detalle-info .detalle-btn {
     width: 100%;
     max-width: 280px;
     padding: 14px;

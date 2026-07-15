@@ -12,29 +12,30 @@ function ProductoDetalle() {
   const { addToCart } = useCart()
 
   const [producto, setProducto] = useState(null)
-    const [cargando, setCargando] = useState(true)
+  const [cargando, setCargando] = useState(true)
 
-    useEffect(() => {
-      const obtenerProducto = async () => {
-        try {
-          setCargando(true)
-          const docRef = doc(db, "productos", id)
-          const docSnap = await getDoc(docRef)
-
-          if (docSnap.exists()) {
-            setProducto({ id: docSnap.id, ...docSnap.data() })
-          } else {
-            console.error("No se encontró el producto")
-          }
-        } catch (error) {
-          console.error("Error al obtener el producto:", error)
-        } finally {
-          setCargando(false)
+  useEffect(() => {
+    const obtenerProducto = async () => {
+      try {
+        setCargando(true)
+        const docRef = doc(db, "productos", id)
+        const docSnap = await getDoc(docRef)
+        if (docSnap.exists()) {
+          setProducto({ id: docSnap.id, ...docSnap.data() })
+        } else {
+          console.error("No se encontró el producto")
         }
+      } catch (error) {
+        console.error("Error al obtener el producto:", error)
+      } finally {
+        setCargando(false)
       }
+    }
 
+   if (id) {
       obtenerProducto()
-    }, [id])
+    }
+  }, [id])
   
   function handleAddToCart() {
     if (producto) {
@@ -70,7 +71,7 @@ function ProductoDetalle() {
         <h2>{producto.nombre}</h2>
         <p>{producto.descripcion}</p>
         <strong className="detalle-precio">
-          ${number(producto.precio).toLocaleString('es-AR')}
+          ${Number(producto.precio).toLocaleString('es-AR')}
         </strong>
         <button className="detalle-btn" onClick={handleAddToCart}>
           Agregar al carrito

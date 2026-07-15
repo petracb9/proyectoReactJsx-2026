@@ -52,7 +52,6 @@ function CartProvider({ children }) {
      prev.map(item => { 
       if (item.id === id) { 
          if (item.cantidad >= stockMaximo) {
-          //alert(`Lo sentimos, no se puede agregar más de ${stockMaximo} unidades de este producto al carrito.`)
           return item
          }
         

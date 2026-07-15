@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from "react-router-dom"
 //import productosData from '../../data/productos.json'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../../firebase/config'
 import Item from './Item'
 import BarraBusqueda from '../search/BarraBusqueda'
 import PaginadorProductos from './PaginadorProductos'
@@ -13,6 +15,7 @@ const quitarAcentos = (texto) => {
 }
 
 function ItemListContainer({ categoria }) {
+  const [productosData, setProductosData] = useState([])
   const [busqueda, setBusqueda] = useState('')
   const [paginaActual, setPaginaActual] = useState(1)
   const [cargando, setCargando] = useState(true)
@@ -20,7 +23,23 @@ function ItemListContainer({ categoria }) {
   const location = useLocation()
 
   useEffect(() => {
-    setCargando(false)
+    const obtenerProductos = async () => {
+      try {
+        setCargando(true)
+        const querySnapshot = await getDocs(collection(db, "productos"))
+        const lista = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+        setProductosData(lista)
+      } catch (error) {
+         console.error("Error al conectar con firestore:", error)
+      } finally {
+        setCargando(false)
+      }
+    }
+
+    obtenerProductos()
   }, [])
 
   useEffect(() => {

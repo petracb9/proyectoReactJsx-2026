@@ -49,7 +49,7 @@ function Carrito() {
                   <span className='cart-item-number'>{producto.cantidad}</span>
                         
                   <button className="btn-contador" 
-                    onClick={() => cantidadMas(producto.id)}
+                    onClick={() => cantidadMas(producto.id, producto.stock)}
                   >+</button>
                 </div>
                                

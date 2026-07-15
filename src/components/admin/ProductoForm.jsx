@@ -76,12 +76,12 @@ function ProductoForm({ onSubmit, initialData = {}, isEditMode = false, producto
         />
       </div>
       <div className="form-group">
-        <label htmlFor="categoría">Categoría:</label>
+        <label htmlFor="categoria">Categoría:</label>
         <input
           type="text"
-          id="categoría"
-          name="categoría"
-          value={formData.categoría}
+          id="categoria"
+          name="categoria"
+          value={formData.categoria}
           onChange={handleChange}
         />
       </div>

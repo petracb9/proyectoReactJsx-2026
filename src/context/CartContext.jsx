@@ -1,4 +1,4 @@
-import {createContext, useContext, useState} from 'react'
+import {createContext, useContext, useState, useEffect } from 'react'
 
 export const CartContext = createContext()
 
@@ -7,18 +7,33 @@ export function useCart() {
 }
 
 function CartProvider({ children }) {
-  const [carrito, setCarrito] = useState([])
-  console.log('CartProvider init')
+  const [carrito, setCarrito] = useState(() => {
+    const carritoGuardado = localStorage.getItem("tropic_cart")
+    return carritoGuardado ? JSON.parse(carritoGuardado) : []
+  })
+
+  useEffect(() => {
+    localStorage.setItem("tropic_cart", JSON.stringify(carrito))
+  }, [carrito])
 
   function addToCart(producto) {
     setCarrito(prev => {
       const existe = prev.find(item => item.id === producto.id)
       if (existe) {
-        return prev.map(item =>
+        if (existe.cantidad >= producto.stock) {
+           return prev
+        }
+        
+        return prev.map((item) =>
           item.id === producto.id
             ? { ...item, cantidad: item.cantidad + 1 }
             : item
         )
+      } else {
+        if (producto.stock <= 0) {
+          alert(`Lo sentimos, ${producto.nombre} está agotado y no se puede agregar al carrito.`)
+          return prev
+        }
       }
       return [...prev, { ...producto, cantidad: 1 }]
     })
@@ -32,13 +47,21 @@ function CartProvider({ children }) {
     setCarrito([])
   }
 
-  function cantidadMas(id) {
+  function cantidadMas(id, stockMaximo) {
     setCarrito(prev =>
-    prev.map(item =>
-      item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item
-    )
-   )
-  }
+     prev.map(item => { 
+      if (item.id === id) { 
+         if (item.cantidad >= stockMaximo) {
+          //alert(`Lo sentimos, no se puede agregar más de ${stockMaximo} unidades de este producto al carrito.`)
+          return item
+         }
+        
+      return { ...item, cantidad: item.cantidad + 1 } 
+     }
+     return item    
+    })
+  )
+}
 
   function cantidadMenos(id) {
     setCarrito(prev =>
@@ -62,10 +85,8 @@ function CartProvider({ children }) {
       addToCart,
       removeFromCart,
       clearCart,
-
       cantidadMas,
       cantidadMenos,
-      
       totalItems,
       totalPrecio
     }}>

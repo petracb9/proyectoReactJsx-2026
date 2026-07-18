@@ -172,21 +172,20 @@
   white-space: nowrap;
   }
 
-  .cart-delete-btn {
-    background: transparent;
-    color: #ef4444;
-    border: 1px solid #fee2e2;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-
-  .cart-delete-btn:hover {
-    background: #ece0f8;
-  }
+.cart-delete-btn {
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid #fee2e2;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cart-delete-btn:hover {
+  background: #ece0f8;
+}
 /* ------------ ---------- */
 .cart-summary {
   display: flex;

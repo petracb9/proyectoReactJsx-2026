@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/layout/Navbar'
-import Footer from './components/layout/Footer'
+import Layout from './components/layout/Layout'
 import Home from './pages/Home'
 import Categorias from './pages/Categorias'
 import Productos from './pages/Productos'
@@ -10,7 +9,7 @@ import Login from './pages/Login'
 import Registro from './pages/Registro'
 import Perfil from './pages/Perfil'
 import RecuperarPassword from './pages/RecuperarPassword'
-import PrivateRoute from './components/auth/PrivateRoute'
+import { PrivateRoute, AdminRoute } from './components/auth/PrivateRoute'
 import AdminProductos from './pages/AdminProductos'
 import AuthProvider from './context/AuthContext'
 import CartProvider from './context/CartContext'
@@ -21,8 +20,7 @@ function App() {
     <div className="app-container">
       <AuthProvider>
         <CartProvider>
-          <Navbar />
-          <main className="main-content">
+          <Layout />
            <Routes>
                <Route path="/" element={<Home />} />
                <Route path="/categorias" element={<Categorias />} />
@@ -38,13 +36,12 @@ function App() {
                } />
                <Route path="/recuperar-password" element={<RecuperarPassword />} />
                <Route path="/admin" element={
-                 <PrivateRoute>
+                 <AdminRoute>
                    <AdminProductos />
-                 </PrivateRoute>
+                 </AdminRoute>
                } />
-             </Routes>
-          </main>      
-          <Footer />
+           </Routes>  
+          <Layout />
         </CartProvider>
       </AuthProvider>
     </div>

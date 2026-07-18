@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 
-const CORREO_ADMIN = "admin@tropicglass.com"//cambia el correo por admin@tropicglass.com el que quieras que sea admin
+const CORREO_ADMIN = "cpethernandez8@gmail.com"//cambia el correo por admin@tropicglass.com el que quieras que sea admin
 
 export function PrivateRoute({ children }) {
   const { user, loading } = useAuth()  

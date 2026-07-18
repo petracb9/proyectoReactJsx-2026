@@ -12,7 +12,7 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const toggleMenu = () => {setIsMenuOpen(!isMenuOpen)}
   const cerrarMenu = () => {setIsMenuOpen(false)}
-  const CORREO_ADMIN = "admin@tropicglass.com" //cambia el correo por admin@tropicglass el que quieras que sea admin
+  const CORREO_ADMIN = "cpethernandez8@gmail.com" //cambia el correo por admin@tropicglass el que quieras que sea admin
 
   async function handleLogout() {
     try {

@@ -20,7 +20,7 @@ function App() {
     <div className="app-container">
       <AuthProvider>
         <CartProvider>
-          <Layout />
+          <Layout>
            <Routes>
                <Route path="/" element={<Home />} />
                <Route path="/categorias" element={<Categorias />} />
@@ -41,11 +41,12 @@ function App() {
                  </AdminRoute>
                } />
            </Routes>  
-          <Layout />
+          </Layout>
         </CartProvider>
       </AuthProvider>
     </div>
   )
 } 
+      
 
 export default App

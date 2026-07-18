@@ -73,7 +73,7 @@ function Carrito() {
         <button className="cart-clear" onClick={clearCart}>
           Vaciar carrito
         </button>
-        <Link to="/productos" className="cart-link-btn">
+        <Link to="/productos" className="cart-btn cart-link-btn">
           Seguir comprando 
         </Link>
         <button className="cart-btn">

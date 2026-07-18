@@ -12,6 +12,7 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const toggleMenu = () => {setIsMenuOpen(!isMenuOpen)}
   const cerrarMenu = () => {setIsMenuOpen(false)}
+  const CORREO_ADMIN = "admin@tropicglass.com" //cambia el correo por admin@tropicglass el que quieras que sea admin
 
   async function handleLogout() {
     try {
@@ -38,7 +39,7 @@ function Navbar() {
           <li><Link to="/" onClick={cerrarMenu}>Inicio</Link></li>
           <li><Link to="/categorias" onClick={cerrarMenu}>Categorías</Link></li>
           <li><Link to="/productos" onClick={cerrarMenu}>Productos</Link></li>
-          {user && (
+          {user && user.email === CORREO_ADMIN && (
             <li><Link to="/admin" onClick={cerrarMenu}>Admin</Link></li>
           )}
 
@@ -49,7 +50,7 @@ function Navbar() {
             </>
           ) : (
             <>
-              <li><Link to="/perfil" onClick={cerrarMenu}>Perfil</Link></li>
+              <li><Link to="/perfil" onClick={cerrarMenu}>Mi Perfil</Link></li>
               <li><button onClick={handleLogout} className='nav-logout'>Salir</button></li> 
             </>
           )}

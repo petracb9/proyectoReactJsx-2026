@@ -204,7 +204,7 @@
 }
 
 .cart-clear,
-.cart-summary a.cart-link-btn,
+.cart-link-btn,
 .cart-btn {
   background: #3f4d6c;
   color: #d7d7e5;
@@ -223,9 +223,6 @@
   background: #d1a337;
 }
 
-.cart-summary .cart-link-btn :hover {
-  background: #d1a337;
-}
 
 @media screen and (max-width: 768px) {
   .carrito-vacio {
